@@ -35,7 +35,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `marketing/hubspot-ops-ja` | 実働 | CRM/MA設計。名寄せ・フリガナ・特定電子メール法・オフラインCV連携 |
 | `marketing/meo-ja` | 実働 | Googleビジネスプロフィール運用。口コミ獲得・返信(医療の守秘義務対応)、ローカル順位改善 |
 | `marketing/line-official-ja` | 実働 | LINE公式アカウント。友だち導線・リッチメニュー・リマインド配信でリピートを作る |
-| `marketing/sns-organic-ja` | 実働 | X/Instagram等のオーガニック運用。投稿の型の配合、炎上リスク管理と初動対応 |
+| `marketing/sns-organic-ja` | 実働 | SNS運用の一気通貫。完成原稿の制作→承認キュー→**実投稿の実行**(X投稿スクリプト同梱・IG Graph API手順)→計測。炎上管理込み |
 | `marketing/press-release-ja` | 実働 | プレスリリース。ニュース価値判定、記者視点の逆三角形構成、配信・効果測定 |
 | `marketing/negative-keyword-scanner` | レビュー | 検索語句レポート→除外KW。日本語表記ゆれ対応 |
 | `marketing/seo-content-scorer-ja` | レビュー | 記事採点100点制。YMYL医療はE-E-A-T配点2倍 |
