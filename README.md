@@ -2,12 +2,14 @@
 
 Claude Code / Claude 向けの Agent Skills 集。海外の高評価スキル(marketingskills, marketing-mode, Ryze, superpowers, agent-team-orchestration ほか)の設計を参考に、**日本の法規制・広告仕様・商習慣・日本語の言語特性**に合わせて再設計したもの。
 
-## 構成(6分野・33スキル)
+**業種には依存しない汎用設計。** EC・SaaS・アプリ・店舗・BtoB・医療など幅広く使える。医療広告ガイドライン・薬機法などの規制対応は「該当業種のときだけ発動する条件分岐」として各スキルに組み込んである。
+
+## 構成(6分野・35スキル)
 
 ```
 gtm/              Go-To-Market(戦略・ポジショニング・競合・価格)
 marketing/        マーケティング(広告運用・SEO・MEO・LINE・CRM・レビュー)
-creative/         制作(LP・広告クリエイティブ・資料・デザインレビュー)
+creative/         制作(LP・広告クリエイティブ・画像生成・資料・デザインレビュー)
 engineering/      エンジニアリング(ツール開発・セキュリティ・デバッグ・UI・スキル監査)
 management/       経営・業務(AIチーム編成・レポート・議事録・メール・監査ログ)
 data-science/     データサイエンス(リサーチ・データ突合)
@@ -42,7 +44,8 @@ data-science/     データサイエンス(リサーチ・データ突合)
 |---|---|---|
 | `creative/lp-builder-ja` | 実働 | LP構成定石・EFO・法定表記・CV計測設計まで一気通貫 |
 | `creative/ad-creative-ja` | 実働 | 訴求軸マトリクス、Meta/LINE/YouTube/GDN入稿規格、テスト・疲弊管理 |
-| `creative/sales-deck-ja` | 実働 | 稟議で回覧される前提の提案書・営業資料・ホワイトペーパー |
+| `creative/sales-deck-ja` | 実働 | 稟議で回覧される前提の提案書・営業資料。SLIDE.md方式でデザインと内容を分離 |
+| `creative/image-generation-ja` | 実働 | 画像生成ワークフロー。指示の仕様化(Scene/Subject/Details/UseCase/Constraints)、形容詞→視覚情報変換、クロマキー透過スクリプト同梱 |
 | `creative/design-review-ja` | レビュー | 3秒テスト・タイポ・打消し表示の視認性など出稿前レビュー |
 
 ### エンジニア
@@ -74,6 +77,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `data-science/seo-research-ja` | 実働 | 順位・SERP・競合の週次モニタリング→ブリーフィング化 |
 | `data-science/ga4-analysis-ja` | 実働 | GA4の設定監査と分析。しきい値・not set等の誤読防止、LP別・ファネル分析 |
 | `data-science/sc-ga4-report-ja` | 実働 | Search Console×GA4統合分析。自社=常時蓄積/クライアント=スポット受領の2モード |
+| `data-science/dashboard-design-ja` | レビュー | ダッシュボード設計規律(デジタル庁ガイド準拠)。構成比は横棒・軸0起点・定義注記必須 |
 | `data-science/data-reconciliation` | レビュー | Looker Studio等と生データの突合QA。CV確定遅延・税込税抜等の頻出ズレ対応 |
 
 ## インストール
