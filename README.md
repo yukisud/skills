@@ -2,11 +2,11 @@
 
 Claude Code / Claude 向けの Agent Skills 集。海外の高評価スキル(marketingskills, marketing-mode, Ryze, superpowers, agent-team-orchestration ほか)の設計を参考に、**日本の法規制・広告仕様・商習慣・日本語の言語特性**に合わせて再設計したもの。
 
-## 構成(6分野・26スキル)
+## 構成(6分野・29スキル)
 
 ```
 gtm/              Go-To-Market(戦略・ポジショニング・競合・価格)
-marketing/        マーケティング(広告運用・SEO・CRM・レビュー)
+marketing/        マーケティング(広告運用・SEO・MEO・LINE・CRM・レビュー)
 creative/         制作(LP・広告クリエイティブ・資料・デザインレビュー)
 engineering/      エンジニアリング(セキュリティ・デバッグ・UI・スキル監査)
 management/       経営・業務(AIチーム編成・レポート・議事録・メール・監査ログ)
@@ -30,6 +30,8 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `marketing/seo-strategy-ja` | 推論 | Technical→On-Page→Content→Off-Pageの診断。MEO・ポータル支配SERP前提 |
 | `marketing/rsa-copywriter-ja` | 実働 | RSA広告文。全角15/45文字カウント+法令セルフチェック付き出力 |
 | `marketing/hubspot-ops-ja` | 実働 | CRM/MA設計。名寄せ・フリガナ・特定電子メール法・オフラインCV連携 |
+| `marketing/meo-ja` | 実働 | Googleビジネスプロフィール運用。口コミ獲得・返信(医療の守秘義務対応)、ローカル順位改善 |
+| `marketing/line-official-ja` | 実働 | LINE公式アカウント。友だち導線・リッチメニュー・リマインド配信でリピートを作る |
 | `marketing/negative-keyword-scanner` | レビュー | 検索語句レポート→除外KW。日本語表記ゆれ対応 |
 | `marketing/seo-content-scorer-ja` | レビュー | 記事採点100点制。YMYL医療はE-E-A-T配点2倍 |
 | `marketing/ja-humanizer` | レビュー | 日本語特有のAI文体兆候の除去 |
@@ -67,6 +69,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | スキル | 役割 | 内容 |
 |---|---|---|
 | `data-science/seo-research-ja` | 実働 | 順位・SERP・競合の週次モニタリング→ブリーフィング化 |
+| `data-science/ga4-analysis-ja` | 実働 | GA4の設定監査と分析。しきい値・not set等の誤読防止、LP別・ファネル分析 |
 | `data-science/data-reconciliation` | レビュー | Looker Studio等と生データの突合QA。CV確定遅延・税込税抜等の頻出ズレ対応 |
 
 ## インストール
