@@ -1,48 +1,73 @@
 # skills — 日本環境最適化 業務スキル集
 
-Claude Code / Claude 向けの Agent Skills 集。海外製スキル(marketingskills, marketing-mode, Ryze, agent-team-orchestration ほか)の設計を参考に、**日本の法規制・広告仕様・商習慣・日本語の言語特性**に合わせて再設計したもの。
+Claude Code / Claude 向けの Agent Skills 集。海外の高評価スキル(marketingskills, marketing-mode, Ryze, superpowers, agent-team-orchestration ほか)の設計を参考に、**日本の法規制・広告仕様・商習慣・日本語の言語特性**に合わせて再設計したもの。
 
-## 構成
+## 構成(6分野・26スキル)
 
 ```
-marketing/        マーケティング(広告運用・SEO・コピー・レビュー)
-engineering/      エンジニアリング(UI設計・スキル監査)
-management/       経営・組織運営(AIチーム編成・レポート・監査ログ)
+gtm/              Go-To-Market(戦略・ポジショニング・競合・価格)
+marketing/        マーケティング(広告運用・SEO・CRM・レビュー)
+creative/         制作(LP・広告クリエイティブ・資料・デザインレビュー)
+engineering/      エンジニアリング(セキュリティ・デバッグ・UI・スキル監査)
+management/       経営・業務(AIチーム編成・レポート・議事録・メール・監査ログ)
 data-science/     データサイエンス(リサーチ・データ突合)
 ```
 
+### GTM(戦略の上流)
+
+| スキル | 役割 | 内容 |
+|---|---|---|
+| `gtm/gtm-strategy-ja` | 推論 | 市場投入計画の司令塔。チャネル選定マップ(LINE・Yahoo!・ポータル含む)、KPIツリー、撤退基準 |
+| `gtm/positioning-messaging-ja` | 推論 | バリュープロップ定義→全チャネルへ一貫展開するメッセージングフレームワーク |
+| `gtm/competitor-analysis-ja` | 推論 | 広告透明性センター・口コミ・登記等の日本の情報源による競合分析。打ち手接続まで必須 |
+| `gtm/pricing-strategy-ja` | 推論 | 松竹梅設計、値上げの進め方、総額表示・二重価格の法令対応 |
+
 ### マーケ
 
-| スキル | 役割 | 元ネタ | 日本最適化ポイント |
-|---|---|---|---|
-| `marketing/google-ads-ja-ops` | 推論 | coreyhaines31/marketingskills | 医療広告ガイドライン、P-Max/入札判断、円建てCPA基準 |
-| `marketing/rsa-copywriter-ja` | 実働 | 同上のRSA出力仕様 | 全角15/45文字制限、薬機法・医療広告セルフチェック |
-| `marketing/negative-keyword-scanner` | レビュー | Ryze無料スキル集 | 日本語表記ゆれ(ひらがな/カタカナ/漢字)を考慮した除外判定 |
-| `marketing/seo-content-scorer-ja` | レビュー | Ryze / kostja94 | 日本語KW配置・共起語・E-E-A-T(YMYL医療)採点 |
-| `marketing/ja-humanizer` | レビュー | humanizer | 日本語特有のAI文体兆候(「〜しましょう」連発等)を除去 |
-| `marketing/seo-strategy-ja` | 推論 | kostja94/marketing-skills | Technical→On-Page→Content→Off-Pageを日本市場向けに編成 |
+| スキル | 役割 | 内容 |
+|---|---|---|
+| `marketing/google-ads-ja-ops` | 推論 | 運用判断の頭脳。入札・P-Max・予算のCV件数別ロジック+医療広告GL/薬機法/景表法 |
+| `marketing/seo-strategy-ja` | 推論 | Technical→On-Page→Content→Off-Pageの診断。MEO・ポータル支配SERP前提 |
+| `marketing/rsa-copywriter-ja` | 実働 | RSA広告文。全角15/45文字カウント+法令セルフチェック付き出力 |
+| `marketing/hubspot-ops-ja` | 実働 | CRM/MA設計。名寄せ・フリガナ・特定電子メール法・オフラインCV連携 |
+| `marketing/negative-keyword-scanner` | レビュー | 検索語句レポート→除外KW。日本語表記ゆれ対応 |
+| `marketing/seo-content-scorer-ja` | レビュー | 記事採点100点制。YMYL医療はE-E-A-T配点2倍 |
+| `marketing/ja-humanizer` | レビュー | 日本語特有のAI文体兆候の除去 |
+
+### 制作(Creative)
+
+| スキル | 役割 | 内容 |
+|---|---|---|
+| `creative/lp-builder-ja` | 実働 | LP構成定石・EFO・法定表記・CV計測設計まで一気通貫 |
+| `creative/ad-creative-ja` | 実働 | 訴求軸マトリクス、Meta/LINE/YouTube/GDN入稿規格、テスト・疲弊管理 |
+| `creative/sales-deck-ja` | 実働 | 稟議で回覧される前提の提案書・営業資料・ホワイトペーパー |
+| `creative/design-review-ja` | レビュー | 3秒テスト・タイポ・打消し表示の視認性など出稿前レビュー |
 
 ### エンジニア
 
-| スキル | 役割 | 元ネタ | 日本最適化ポイント |
-|---|---|---|---|
-| `engineering/frontend-design-ja` | 推論 | anthropics/frontend-design | 日本語タイポグラフィ(約物・行長・フォントスタック) |
-| `engineering/skill-vetting` | レビュー | skill-vetting系 | 導入前のマルウェア・データ流出パターン監査手順 |
+| スキル | 役割 | 内容 |
+|---|---|---|
+| `engineering/security-review-ja` | レビュー | **開発系タスクの完了前・リリース前に必須。** シークレット/インジェクション/認可/依存/CI/CD/個人情報保護法まで10章の網羅チェック |
+| `engineering/systematic-debugging-ja` | 推論 | 再現→最小化→仮説検証→根本原因の体系的デバッグ。推測修正の禁止 |
+| `engineering/frontend-design-ja` | 実働 | 日本語タイポグラフィ(行間・禁則・フォントスタック)込みのUI実装 |
+| `engineering/skill-vetting` | レビュー | 外部スキル導入前のマルウェア・データ流出・プロンプトインジェクション監査 |
 
-### 経営
+### 経営・業務
 
-| スキル | 役割 | 元ネタ | 日本最適化ポイント |
-|---|---|---|---|
-| `management/agent-team-orchestration-ja` | 推論 | agent-team-orchestration | 稟議・報連相を模したレビュー/引き継ぎ様式 |
-| `management/client-report-generator-ja` | 実働 | report-generator | 月次報告書の定型(サマリ→実績→分析→翌月施策) |
-| `management/command-logger` | レビュー | command-logger | hooksによる全コマンド監査ログ(JSONL) |
+| スキル | 役割 | 内容 |
+|---|---|---|
+| `management/agent-team-orchestration-ja` | 推論 | AI社員化の設計図。3層分離(推論/実働/レビュー)・報連相様式・人間承認ゲート |
+| `management/client-report-generator-ja` | 実働 | 月次報告書の定型(サマリ→実績→分析→翌月施策) |
+| `management/meeting-minutes-ja` | 実働 | 議事録。決定事項・TODO(担当/期日)構造化、社外配布版の出し分け |
+| `management/business-email-ja` | 実働 | ビジネスメール。敬語添削表、依頼/催促/謝罪/断りの型 |
+| `management/command-logger` | レビュー | hooksによる全ツール実行のJSONL監査ログ(スクリプト同梱) |
 
 ### データサイエンス
 
-| スキル | 役割 | 元ネタ | 日本最適化ポイント |
-|---|---|---|---|
-| `data-science/seo-research-ja` | 実働 | seo-research | 日本のSERP機能(強調スニペット/ローカルパック)前提の調査手順 |
-| `data-science/data-reconciliation` | レビュー | 自作 | Looker Studio定義とAPI生データの突合QA |
+| スキル | 役割 | 内容 |
+|---|---|---|
+| `data-science/seo-research-ja` | 実働 | 順位・SERP・競合の週次モニタリング→ブリーフィング化 |
+| `data-science/data-reconciliation` | レビュー | Looker Studio等と生データの突合QA。CV確定遅延・税込税抜等の頻出ズレ対応 |
 
 ## インストール
 
@@ -54,14 +79,21 @@ cp -r marketing/google-ads-ja-ops ~/.claude/skills/
 
 プロジェクトスキルとして使う場合は、対象リポジトリの `.claude/skills/` 配下に配置。
 
-## 最短ルート(広告運用フロー)
+## 推奨セット
 
-まず入れる3点セット:
-
-1. `marketing/google-ads-ja-ops` — 運用判断の頭脳
-2. `marketing/negative-keyword-scanner` — 検索語句レポート→除外KWの実務
+**広告運用の最短ルート(3点)**
+1. `marketing/google-ads-ja-ops` — 運用判断
+2. `marketing/negative-keyword-scanner` — 除外KWの実務
 3. `management/command-logger` — 実行権限を渡す前の監査基盤
+
+**開発の必須セット(3点)**
+1. `engineering/security-review-ja` — コードを外に出す前に必ず通す
+2. `engineering/systematic-debugging-ja` — 障害対応の型
+3. `engineering/skill-vetting` — 外部スキル導入時の門番
+
+**新規事業・新サービスの立ち上げ(GTM一式)**
+`gtm/` の4本 → 決まったメッセージを `creative/`・`marketing/` の実働スキルへ展開
 
 ## ⚠️ 外部スキル導入時の注意
 
-外部配布スキル(ClawHub等)には悪意あるコードが混入している事例が報告されている。導入前に必ず `engineering/skill-vetting` の手順でソースをレビューすること。
+外部配布スキル(マーケットプレイス等)には悪意あるコードの混入事例が報告されている。導入前に必ず `engineering/skill-vetting` の手順でソースをレビューし、導入後は `management/command-logger` のログで事後監査すること。
