@@ -52,6 +52,25 @@ description: LINE公式アカウントの設計・運用。友だち追加導線
 - [ ] 医療の場合、診断・治療判断に踏み込む返信をチャットでしない(対面への誘導までにする)
 - [ ] 抽選・プレゼント企画は景表法の景品規制(総付・懸賞の上限)を確認
 
+## 配信の実行(Messaging API)
+
+配信文の納品で止めず、承認済みの配信を**実際に送信するまで**行う。承認キューは `marketing/sns-organic-ja` §3 と同方式(1配信1ファイル、status: draft→approved→sent)。
+
+セットアップ(初回): LINE Developersでチャネル作成→チャネルアクセストークン(長期)を発行→環境変数 `LINE_CHANNEL_ACCESS_TOKEN` へ(.env管理・コミット禁止)。
+
+```bash
+# 全員配信(broadcast)
+curl -X POST https://api.line.me/v2/bot/message/broadcast \
+  -H "Authorization: Bearer ${LINE_CHANNEL_ACCESS_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d '{"messages":[{"type":"text","text":"(承認済み本文)"}]}'
+# セグメント配信(narrowcast)は audience 指定で同様。配信前に
+# 対象者数を GET /v2/bot/insight/followers 等で確認し、従量課金の通数を概算してから実行
+```
+
+- **実行ゲート**: 配信は外部公開+従量課金なので、status: approved かつ概算通数の確認後にのみ実行。実行後はレスポンスの requestId と配信日時をファイルに追記(二重配信防止)
+- 配信結果(開封・クリック)は翌週のPDCAサイクル(`docs/pdca/LINE運用.md`)で回収し、§4のKPI表に蓄積する
+
 ## 成果物の様式
 
 - **設計依頼** → アカウント設計書(目的/導線別の獲得施策/あいさつメッセージ全文/リッチメニュー6枠の配置と遷移先/ステップ配信シナリオ)

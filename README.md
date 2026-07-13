@@ -4,7 +4,9 @@ Claude Code / Claude 向けの Agent Skills 集。海外の高評価スキル(ma
 
 **業種には依存しない汎用設計。** EC・SaaS・アプリ・店舗・BtoB・医療など幅広く使える。医療広告ガイドライン・薬機法などの規制対応は「該当業種のときだけ発動する条件分岐」として各スキルに組み込んである。
 
-## 構成(6分野・40スキル)
+**完了の定義は「提案」ではなく「実行と記録」。** 実働スキルはAPI・スクリプト接続があれば実行まで行い(承認ゲート対象を除く)、結果をPDCA台帳(`management/pdca-runner-ja`)に記録して次サイクルへつなぐ。接続が未整備の場合のみ、入稿可能な完成物+実行手順の納品で代替する。
+
+## 構成(6分野・41スキル)
 
 ```
 gtm/              Go-To-Market(戦略・ポジショニング・競合・価格)
@@ -67,7 +69,8 @@ data-science/     データサイエンス(リサーチ・データ突合)
 
 | スキル | 役割 | 内容 |
 |---|---|---|
-| `management/agent-team-orchestration-ja` | 推論 | AI社員化の設計図。3層分離(推論/実働/レビュー)・報連相様式・人間承認ゲート |
+| `management/agent-team-orchestration-ja` | 推論 | AI社員化の設計図。3層分離(推論/実働/レビュー)・報連相様式・人間承認ゲート・信頼台帳 |
+| `management/pdca-runner-ja` | 実働 | **全施策のPDCA運転席。** 施策台帳(P→D→C→A)、承認ゲート初期ルール、接続レジストリ、定期起動での自走 |
 | `management/client-report-generator-ja` | 実働 | 月次報告書の定型(サマリ→実績→分析→翌月施策) |
 | `management/meeting-minutes-ja` | 実働 | 議事録。決定事項・TODO(担当/期日)構造化、社外配布版の出し分け |
 | `management/business-email-ja` | 実働 | ビジネスメール。敬語添削表、依頼/催促/謝罪/断りの型 |
