@@ -2,13 +2,13 @@
 
 Claude Code / Claude 向けの Agent Skills 集。海外の高評価スキル(marketingskills, marketing-mode, Ryze, superpowers, agent-team-orchestration ほか)の設計を参考に、**日本の法規制・広告仕様・商習慣・日本語の言語特性**に合わせて再設計したもの。
 
-## 構成(6分野・29スキル)
+## 構成(6分野・33スキル)
 
 ```
 gtm/              Go-To-Market(戦略・ポジショニング・競合・価格)
 marketing/        マーケティング(広告運用・SEO・MEO・LINE・CRM・レビュー)
 creative/         制作(LP・広告クリエイティブ・資料・デザインレビュー)
-engineering/      エンジニアリング(セキュリティ・デバッグ・UI・スキル監査)
+engineering/      エンジニアリング(ツール開発・セキュリティ・デバッグ・UI・スキル監査)
 management/       経営・業務(AIチーム編成・レポート・議事録・メール・監査ログ)
 data-science/     データサイエンス(リサーチ・データ突合)
 ```
@@ -51,6 +51,9 @@ data-science/     データサイエンス(リサーチ・データ突合)
 |---|---|---|
 | `engineering/security-review-ja` | レビュー | **開発系タスクの完了前・リリース前に必須。** シークレット/インジェクション/認可/依存/CI/CD/個人情報保護法まで10章の網羅チェック |
 | `engineering/systematic-debugging-ja` | 推論 | 再現→最小化→仮説検証→根本原因の体系的デバッグ。推測修正の禁止 |
+| `engineering/tool-design-ja` | 推論 | ツール開発の上流。要件定義・作らない判断・技術選定・デプロイ先選定・仕様書 |
+| `engineering/tool-development-ja` | 実働 | 仕様書からの開発実働。テスト・security-review必須ゲート・デプロイ・引き継ぎREADME |
+| `engineering/tool-maintenance-ja` | 実働 | 既存ツールの解析→逆仕様書→安全な変更・修正。回帰確認と変更記録 |
 | `engineering/frontend-design-ja` | 実働 | 日本語タイポグラフィ(行間・禁則・フォントスタック)込みのUI実装 |
 | `engineering/skill-vetting` | レビュー | 外部スキル導入前のマルウェア・データ流出・プロンプトインジェクション監査 |
 
@@ -70,6 +73,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 |---|---|---|
 | `data-science/seo-research-ja` | 実働 | 順位・SERP・競合の週次モニタリング→ブリーフィング化 |
 | `data-science/ga4-analysis-ja` | 実働 | GA4の設定監査と分析。しきい値・not set等の誤読防止、LP別・ファネル分析 |
+| `data-science/sc-ga4-report-ja` | 実働 | Search Console×GA4統合分析。自社=常時蓄積/クライアント=スポット受領の2モード |
 | `data-science/data-reconciliation` | レビュー | Looker Studio等と生データの突合QA。CV確定遅延・税込税抜等の頻出ズレ対応 |
 
 ## インストール
@@ -96,6 +100,9 @@ cp -r marketing/google-ads-ja-ops ~/.claude/skills/
 
 **新規事業・新サービスの立ち上げ(GTM一式)**
 `gtm/` の4本 → 決まったメッセージを `creative/`・`marketing/` の実働スキルへ展開
+
+**ツール開発の一気通貫**
+`tool-design-ja`(要件定義〜仕様書)→ `tool-development-ja`(実装〜デプロイ)→ 運用後の変更は `tool-maintenance-ja`。出荷前の `security-review-ja` は全ルート必須
 
 ## ⚠️ 外部スキル導入時の注意
 
