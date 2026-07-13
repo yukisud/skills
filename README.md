@@ -4,7 +4,7 @@ Claude Code / Claude 向けの Agent Skills 集。海外の高評価スキル(ma
 
 **業種には依存しない汎用設計。** EC・SaaS・アプリ・店舗・BtoB・医療など幅広く使える。医療広告ガイドライン・薬機法などの規制対応は「該当業種のときだけ発動する条件分岐」として各スキルに組み込んである。
 
-## 構成(6分野・39スキル)
+## 構成(6分野・40スキル)
 
 ```
 gtm/              Go-To-Market(戦略・ポジショニング・競合・価格)
@@ -82,6 +82,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `data-science/ga4-analysis-ja` | 実働 | GA4の設定監査と分析。しきい値・not set等の誤読防止、LP別・ファネル分析 |
 | `data-science/sc-ga4-report-ja` | 実働 | Search Console×GA4統合分析。自社=常時蓄積/クライアント=スポット受領の2モード |
 | `data-science/dashboard-design-ja` | レビュー | ダッシュボード設計規律(デジタル庁ガイド準拠)。構成比は横棒・軸0起点・定義注記必須 |
+| `data-science/openseo-ja` | 実働 | OpenSEO(Semrush/AhrefsのOSS代替)をSEOデータ基盤化。日本向け設定・コスト規律・スキル連携マップ |
 | `data-science/data-reconciliation` | レビュー | Looker Studio等と生データの突合QA。CV確定遅延・税込税抜等の頻出ズレ対応 |
 
 ## インストール
@@ -111,6 +112,10 @@ cp -r marketing/google-ads-ja-ops ~/.claude/skills/
 
 **ツール開発の一気通貫**
 `tool-design-ja`(要件定義〜仕様書)→ `tool-development-ja`(実装〜デプロイ)→ 運用後の変更は `tool-maintenance-ja`。出荷前の `security-review-ja` は全ルート必須
+
+## 品質管理
+
+全スキルは6項目の監査基準(起動条件・入力定義・数値基準・出力形式・参照整合・事実正確性)でチェック済み。監査記録と**経年劣化しやすい項目の台帳**(媒体仕様・料金・法令など年1回要確認)は `docs/quality-audit-2026-07.md` を参照。数値基準は業界横断の経験則のため、自社実績が貯まったら実測値で上書きして育てること。
 
 ## ⚠️ 外部スキル導入時の注意
 

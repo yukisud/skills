@@ -67,9 +67,9 @@ description: 画像生成AIを使った画像・アセット制作のワーク�
 背景透過が必要な素材(アイコン・キャラクター・切り抜き素材)は、透過を直接生成させるより**フラットな単色背景で生成→背景除去**が安定する:
 
 1. 背景を「単色・フラット・影なし」で生成する。背景色は被写体に含まれない色を選ぶ(定番は彩度の高い緑 `#00FF00` または マゼンタ `#FF00FF`)
-2. 同梱の `scripts/remove_chroma_key.py` で背景をアルファチャンネル化:
+2. 同梱の `scripts/remove_chroma_key.py`(このスキルディレクトリ内。要 `pip install Pillow`)で背景をアルファチャンネル化:
 ```bash
-python3 scripts/remove_chroma_key.py input.png output.png --color "#00FF00" --threshold 60
+python3 <スキルディレクトリ>/scripts/remove_chroma_key.py input.png output.png --color "#00FF00" --threshold 60
 ```
 3. 検品: 輪郭のフリンジ(緑残り)を確認。残る場合は `--despill` を付けて再実行、または閾値を調整
 4. 被写体に背景色と近い色が含まれる場合は背景色を変えて再生成する
