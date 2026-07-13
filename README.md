@@ -4,7 +4,7 @@ Claude Code / Claude 向けの Agent Skills 集。海外の高評価スキル(ma
 
 **業種には依存しない汎用設計。** EC・SaaS・アプリ・店舗・BtoB・医療など幅広く使える。医療広告ガイドライン・薬機法などの規制対応は「該当業種のときだけ発動する条件分岐」として各スキルに組み込んである。
 
-## 構成(6分野・35スキル)
+## 構成(6分野・39スキル)
 
 ```
 gtm/              Go-To-Market(戦略・ポジショニング・競合・価格)
@@ -23,6 +23,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `gtm/positioning-messaging-ja` | 推論 | バリュープロップ定義→全チャネルへ一貫展開するメッセージングフレームワーク |
 | `gtm/competitor-analysis-ja` | 推論 | 広告透明性センター・口コミ・登記等の日本の情報源による競合分析。打ち手接続まで必須 |
 | `gtm/pricing-strategy-ja` | 推論 | 松竹梅設計、値上げの進め方、総額表示・二重価格の法令対応 |
+| `gtm/customer-research-ja` | 推論 | 顧客インタビュー・アンケート設計。Mom Test原則、日本人回答者のバイアス対策 |
 
 ### マーケ
 
@@ -34,6 +35,8 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `marketing/hubspot-ops-ja` | 実働 | CRM/MA設計。名寄せ・フリガナ・特定電子メール法・オフラインCV連携 |
 | `marketing/meo-ja` | 実働 | Googleビジネスプロフィール運用。口コミ獲得・返信(医療の守秘義務対応)、ローカル順位改善 |
 | `marketing/line-official-ja` | 実働 | LINE公式アカウント。友だち導線・リッチメニュー・リマインド配信でリピートを作る |
+| `marketing/sns-organic-ja` | 実働 | X/Instagram等のオーガニック運用。投稿の型の配合、炎上リスク管理と初動対応 |
+| `marketing/press-release-ja` | 実働 | プレスリリース。ニュース価値判定、記者視点の逆三角形構成、配信・効果測定 |
 | `marketing/negative-keyword-scanner` | レビュー | 検索語句レポート→除外KW。日本語表記ゆれ対応 |
 | `marketing/seo-content-scorer-ja` | レビュー | 記事採点100点制。YMYL医療はE-E-A-T配点2倍 |
 | `marketing/ja-humanizer` | レビュー | 日本語特有のAI文体兆候の除去 |
@@ -68,6 +71,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `management/client-report-generator-ja` | 実働 | 月次報告書の定型(サマリ→実績→分析→翌月施策) |
 | `management/meeting-minutes-ja` | 実働 | 議事録。決定事項・TODO(担当/期日)構造化、社外配布版の出し分け |
 | `management/business-email-ja` | 実働 | ビジネスメール。敬語添削表、依頼/催促/謝罪/断りの型 |
+| `management/customer-support-ja` | 実働 | 問い合わせ・クレーム対応。一次対応の型、部分謝罪の使い分け、カスハラ打ち切り基準 |
 | `management/command-logger` | レビュー | hooksによる全ツール実行のJSONL監査ログ(スクリプト同梱) |
 
 ### データサイエンス
