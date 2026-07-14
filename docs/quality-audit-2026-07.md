@@ -36,6 +36,17 @@
 | 法令(景表法・医療広告GL・特商法・ステマ規制・個人情報保護法) | 各所 | 2026-07(改正時は横断で更新) |
 | DataForSEO最低チャージ($50)・OpenSEO手順 | openseo-ja | 2026-07 |
 | デプロイ先の無料枠・仕様 | tool-design-ja | 2026-07 |
+| **接続ランブック全般(変化が特に速い)**: 各サービスの管理画面UI・発行手順・APIバージョン(Graph API v21等)・エンドポイントURL | connection-setup-ja | 2026-07 |
+| X APIの無料枠・投稿上限、Read/Write権限の仕様 | connection-setup-ja, sns-organic-ja(post_to_x.py) | 2026-07 |
+| Metaトークンの失効期間(現行60日)と更新手順 | connection-setup-ja | 2026-07 |
+| LINE Messaging APIのエンドポイント・従量課金体系 | connection-setup-ja, line-official-ja | 2026-07 |
+| Google Ads APIのバージョン(年3〜4回更新・旧版は約1年で廃止)とデベロッパートークン審査要件 | connection-setup-ja | 2026-07 |
+| HubSpotプライベートアプリ・スコープ体系 | connection-setup-ja, hubspot-ops-ja | 2026-07 |
+
+**接続まわりの仕様変更への備え**(台帳確認を待たない対応):
+- 管理画面UIの変更 → connection-setup-jaは実行時にスクリーンショットを見て案内する設計のため、台本が古くても進行は可能。ズレに気づいた時点でランブックを更新する
+- API呼び出しの失敗(突然の401/403/404) → まず仕様変更・バージョン廃止を疑い、公式の変更履歴を確認してからスクリプトを修正する(connection-setup-jaのトラブルシュート表参照)
+- 接続スクリプト(post_to_x.py等)がAPI変更で壊れた場合は、修正と同時にこの台帳の該当行を更新する
 
 ## 既知の限界(利用時の前提)
 
