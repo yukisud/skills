@@ -6,7 +6,7 @@ Claude Code / Claude 向けの Agent Skills 集。海外の高評価スキル(ma
 
 **完了の定義は「提案」ではなく「実行と記録」。** 実働スキルはAPI・スクリプト接続があれば実行まで行い(承認ゲート対象を除く)、結果をPDCA台帳(`management/pdca-runner-ja`)に記録して次サイクルへつなぐ。接続が未整備の場合のみ、入稿可能な完成物+実行手順の納品で代替する。
 
-## 構成(6分野・41スキル)
+## 構成(6分野・42スキル)
 
 ```
 gtm/              Go-To-Market(戦略・ポジショニング・競合・価格)
@@ -64,6 +64,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `engineering/tool-maintenance-ja` | 実働 | 既存ツールの解析→逆仕様書→安全な変更・修正。回帰確認と変更記録 |
 | `engineering/frontend-design-ja` | 実働 | 日本語タイポグラフィ(行間・禁則・フォントスタック)込みのUI実装 |
 | `engineering/skill-vetting` | レビュー | 外部スキル導入前のマルウェア・データ流出・プロンプトインジェクション監査 |
+| `engineering/connection-setup-ja` | 実働 | API/MCP接続のセットアップ。Google Ads/GA4/SC/LINE/X/HubSpot/Meta/WP のランブック+検証+レジストリ登録 |
 
 ### 経営・業務
 

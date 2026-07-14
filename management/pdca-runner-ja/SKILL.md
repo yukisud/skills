@@ -63,7 +63,7 @@ description: 施策のPDCAサイクルを実際に回す運転席。施策ごと
 | Google Ads API | 未接続 | (接続後: 除外KW登録・レポート取得) | — |
 ```
 
-新しい接続ができたら該当スキルの「接続あり」の実行経路が有効になる。接続作業自体は `engineering/tool-development-ja` が担当。
+新しい接続ができたら該当スキルの「接続あり」の実行経路が有効になる。接続作業は `engineering/connection-setup-ja`(サービス別ランブック)が担当し、開発を伴う連携は `engineering/tool-development-ja` へ。
 
 ## 5. 自動運転の設定(サイクルを人が起動しない)
 
