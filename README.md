@@ -6,13 +6,13 @@ Claude Code / Claude 向けの Agent Skills 集。海外の高評価スキル(ma
 
 **完了の定義は「提案」ではなく「実行と記録」。** 実働スキルはAPI・スクリプト接続があれば実行まで行い(承認ゲート対象を除く)、結果をPDCA台帳(`management/pdca-runner-ja`)に記録して次サイクルへつなぐ。接続が未整備の場合のみ、入稿可能な完成物+実行手順の納品で代替する。
 
-## 構成(6分野・42スキル)
+## 構成(6分野・47スキル)
 
 ```
 gtm/              Go-To-Market(戦略・ポジショニング・競合・価格)
 marketing/        マーケティング(広告運用・SEO・MEO・LINE・CRM・レビュー)
 creative/         制作(LP・広告クリエイティブ・画像生成・資料・デザインレビュー)
-engineering/      エンジニアリング(ツール開発・セキュリティ・デバッグ・UI・スキル監査)
+engineering/      エンジニアリング(ツール開発・AI駆動開発・セキュリティ・デバッグ・UI)
 management/       経営・業務(AIチーム編成・レポート・議事録・メール・監査ログ)
 data-science/     データサイエンス(リサーチ・データ突合)
 ```
@@ -65,6 +65,10 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `engineering/frontend-design-ja` | 実働 | 日本語タイポグラフィ(行間・禁則・フォントスタック)込みのUI実装 |
 | `engineering/skill-vetting` | レビュー | 外部スキル導入前のマルウェア・データ流出・プロンプトインジェクション監査 |
 | `engineering/connection-setup-ja` | 実働 | API/MCP接続のセットアップ。Google Ads/GA4/SC/LINE/X/HubSpot/Meta/WP のランブック+検証+レジストリ登録 |
+| `engineering/ai-agent-design-ja` | 推論 | AIエージェント設計。シンプル設計原則、ガードレール4層と権限L0-L4、構成図(契約書思想)、MCP権限5原則 |
+| `engineering/prompt-engineering-ja` | 推論 | 業務プロンプト設計。ハルシネーション防止10パターン、投入前検証(通常/境界/敵対/長文の件数基準) |
+| `engineering/rag-design-ja` | 推論 | RAG・ナレッジAI設計。チャンク設計の具体値、権限3層、インジェクション防御、Recall@10等の評価指標 |
+| `engineering/ai-eval-harness-ja` | レビュー | 評価ハーネス構築4フェーズ、シャドー→カナリア段階投入、AI生成コードの自動採点3レーン |
 
 ### 経営・業務
 
@@ -76,6 +80,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `management/meeting-minutes-ja` | 実働 | 議事録。決定事項・TODO(担当/期日)構造化、社外配布版の出し分け |
 | `management/business-email-ja` | 実働 | ビジネスメール。敬語添削表、依頼/催促/謝罪/断りの型 |
 | `management/customer-support-ja` | 実働 | 問い合わせ・クレーム対応。一次対応の型、部分謝罪の使い分け、カスハラ打ち切り基準 |
+| `management/ai-adoption-ja` | 推論 | AI駆動開発の組織導入。3新ロール(兼任禁止)、スキルマップ4軸、30/90/180日育成ゲート |
 | `management/command-logger` | レビュー | hooksによる全ツール実行のJSONL監査ログ(スクリプト同梱) |
 
 ### データサイエンス
@@ -113,6 +118,9 @@ cp -r marketing/google-ads-ja-ops ~/.claude/skills/
 
 **新規事業・新サービスの立ち上げ(GTM一式)**
 `gtm/` の4本 → 決まったメッセージを `creative/`・`marketing/` の実働スキルへ展開
+
+**AI駆動開発セット(AI機能・エージェントを作るとき)**
+`ai-agent-design-ja`(設計)→ `prompt-engineering-ja` / `rag-design-ja`(実装設計)→ `ai-eval-harness-ja`(品質)→ 組織定着は `ai-adoption-ja`
 
 **ツール開発の一気通貫**
 `tool-design-ja`(要件定義〜仕様書)→ `tool-development-ja`(実装〜デプロイ)→ 運用後の変更は `tool-maintenance-ja`。出荷前の `security-review-ja` は全ルート必須
