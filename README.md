@@ -6,7 +6,7 @@ Claude Code / Claude 向けの Agent Skills 集。海外の高評価スキル(ma
 
 **完了の定義は「提案」ではなく「実行と記録」。** 実働スキルはAPI・スクリプト接続があれば実行まで行い(承認ゲート対象を除く)、結果をPDCA台帳(`management/pdca-runner-ja`)に記録して次サイクルへつなぐ。接続が未整備の場合のみ、入稿可能な完成物+実行手順の納品で代替する。
 
-## 構成(7分野・54スキル)
+## 構成(7分野・55スキル)
 
 ```
 gtm/              Go-To-Market(戦略・ポジショニング・競合・価格)
@@ -107,6 +107,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `data-science/dashboard-design-ja` | レビュー | ダッシュボード設計規律(デジタル庁ガイド準拠)。構成比は横棒・軸0起点・定義注記必須 |
 | `data-science/openseo-ja` | 実働 | OpenSEO(Semrush/AhrefsのOSS代替)をSEOデータ基盤化。日本向け設定・コスト規律・スキル連携マップ |
 | `data-science/ab-test-analysis-ja` | レビュー | A/Bテストの統計判定。サンプルサイズ・SRM検証、ガードレール指標、採用/延長/中止の推奨 |
+| `data-science/deep-research-ja` | 実働 | 汎用ディープリサーチ。複数ソース検証・確度評価・出典必須。ドメイン特化は専用スキルへ委譲 |
 | `data-science/data-reconciliation` | レビュー | Looker Studio等と生データの突合QA。CV確定遅延・税込税抜等の頻出ズレ対応 |
 
 ## インストール
