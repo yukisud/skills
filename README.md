@@ -6,7 +6,7 @@ Claude Code / Claude 向けの Agent Skills 集。海外の高評価スキル(ma
 
 **完了の定義は「提案」ではなく「実行と記録」。** 実働スキルはAPI・スクリプト接続があれば実行まで行い(承認ゲート対象を除く)、結果をPDCA台帳(`management/pdca-runner-ja`)に記録して次サイクルへつなぐ。接続が未整備の場合のみ、入稿可能な完成物+実行手順の納品で代替する。
 
-## 構成(7分野・52スキル)
+## 構成(7分野・53スキル)
 
 ```
 gtm/              Go-To-Market(戦略・ポジショニング・競合・価格)
@@ -75,6 +75,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `engineering/tool-maintenance-ja` | 実働 | 既存ツールの解析→逆仕様書→安全な変更・修正。回帰確認と変更記録 |
 | `engineering/frontend-design-ja` | 実働 | 日本語タイポグラフィ(行間・禁則・フォントスタック)込みのUI実装 |
 | `engineering/skill-vetting` | レビュー | 外部スキル導入前のマルウェア・データ流出・プロンプトインジェクション監査 |
+| `engineering/security-operations-ja` | レビュー | 防御セキュリティ運用。インシデント対応6フェーズ、脅威ハンティング、ログ調査、脆弱性トリアージ(防御専用) |
 | `engineering/connection-setup-ja` | 実働 | API/MCP接続のセットアップ。Google Ads/GA4/SC/LINE/X/HubSpot/Meta/WP のランブック+検証+レジストリ登録 |
 | `engineering/ai-agent-design-ja` | 推論 | AIエージェント設計。シンプル設計原則、ガードレール4層と権限L0-L4、構成図(契約書思想)、MCP権限5原則 |
 | `engineering/prompt-engineering-ja` | 推論 | 業務プロンプト設計。ハルシネーション防止10パターン、投入前検証(通常/境界/敵対/長文の件数基準) |
