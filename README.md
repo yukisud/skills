@@ -6,7 +6,7 @@ Claude Code / Claude 向けの Agent Skills 集。海外の高評価スキル(ma
 
 **完了の定義は「提案」ではなく「実行と記録」。** 実働スキルはAPI・スクリプト接続があれば実行まで行い(承認ゲート対象を除く)、結果をPDCA台帳(`management/pdca-runner-ja`)に記録して次サイクルへつなぐ。接続が未整備の場合のみ、入稿可能な完成物+実行手順の納品で代替する。
 
-## 構成(7分野・53スキル)
+## 構成(7分野・54スキル)
 
 ```
 gtm/              Go-To-Market(戦略・ポジショニング・競合・価格)
@@ -93,6 +93,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `management/business-email-ja` | 実働 | ビジネスメール。敬語添削表、依頼/催促/謝罪/断りの型 |
 | `management/customer-support-ja` | 実働 | 問い合わせ・クレーム対応。一次対応の型、部分謝罪の使い分け、カスハラ打ち切り基準 |
 | `management/ai-adoption-ja` | 推論 | AI駆動開発の組織導入。3新ロール(兼任禁止)、スキルマップ4軸、30/90/180日育成ゲート |
+| `management/solo-ops-loop-ja` | 推論 | 個人・小規模でAIを「24時間動く社員」に。日次ループ、CLAUDE.mdの業務マニュアル化、需要優先30日ローンチ |
 | `management/premortem-redteam-ja` | レビュー | 計画の事前検死(虎/張り子の虎/象)+前提への攻撃(キル前提・撤退基準・最安テスト) |
 | `management/command-logger` | レビュー | hooksによる全ツール実行のJSONL監査ログ(スクリプト同梱) |
 
