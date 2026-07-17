@@ -6,10 +6,11 @@ Claude Code / Claude 向けの Agent Skills 集。海外の高評価スキル(ma
 
 **完了の定義は「提案」ではなく「実行と記録」。** 実働スキルはAPI・スクリプト接続があれば実行まで行い(承認ゲート対象を除く)、結果をPDCA台帳(`management/pdca-runner-ja`)に記録して次サイクルへつなぐ。接続が未整備の場合のみ、入稿可能な完成物+実行手順の納品で代替する。
 
-## 構成(6分野・47スキル)
+## 構成(7分野・52スキル)
 
 ```
 gtm/              Go-To-Market(戦略・ポジショニング・競合・価格)
+product/          プロダクトマネジメント(PRD・ディスカバリー・ロードマップ/OKR)
 marketing/        マーケティング(広告運用・SEO・MEO・LINE・CRM・レビュー)
 creative/         制作(LP・広告クリエイティブ・画像生成・資料・デザインレビュー)
 engineering/      エンジニアリング(ツール開発・AI駆動開発・セキュリティ・デバッグ・UI)
@@ -26,6 +27,16 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `gtm/competitor-analysis-ja` | 推論 | 広告透明性センター・口コミ・登記等の日本の情報源による競合分析。打ち手接続まで必須 |
 | `gtm/pricing-strategy-ja` | 推論 | 松竹梅設計、値上げの進め方、総額表示・二重価格の法令対応 |
 | `gtm/customer-research-ja` | 推論 | 顧客インタビュー・アンケート設計。Mom Test原則、日本人回答者のバイアス対策 |
+
+### プロダクト(元ネタ: phuryn/pm-skills ⭐23.9k を監査の上、日本の開発現場向けに再設計)
+
+| スキル | 役割 | 内容 |
+|---|---|---|
+| `product/prd-ja` | 実働 | PRD 8セクション+ユーザーストーリー・受け入れ基準。tool-design-jaの上流 |
+| `product/product-discovery-ja` | 推論 | 作る前の検証。機会解決ツリー、仮説8カテゴリ、Impact×Risk優先順位、行動を測る実験設計 |
+| `product/roadmap-okr-ja` | 推論 | 成果ベースロードマップ(Now/Next/Later)、North Star Metric、日本組織で機能するOKR運用 |
+
+関連: `management/premortem-redteam-ja`(計画の事前検死)、`data-science/ab-test-analysis-ja`(実験の統計判定)も同リポジトリ由来。汎用フレームワーク(SWOT・ペルソナ等)は本家プラグイン併用を推奨(`docs/skill-audits/pm-skills-2026-07.md` 参照。**NDA・プライバシーポリシー系は英米法前提のため除外**)。
 
 ### マーケ
 
@@ -81,6 +92,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `management/business-email-ja` | 実働 | ビジネスメール。敬語添削表、依頼/催促/謝罪/断りの型 |
 | `management/customer-support-ja` | 実働 | 問い合わせ・クレーム対応。一次対応の型、部分謝罪の使い分け、カスハラ打ち切り基準 |
 | `management/ai-adoption-ja` | 推論 | AI駆動開発の組織導入。3新ロール(兼任禁止)、スキルマップ4軸、30/90/180日育成ゲート |
+| `management/premortem-redteam-ja` | レビュー | 計画の事前検死(虎/張り子の虎/象)+前提への攻撃(キル前提・撤退基準・最安テスト) |
 | `management/command-logger` | レビュー | hooksによる全ツール実行のJSONL監査ログ(スクリプト同梱) |
 
 ### データサイエンス
@@ -92,6 +104,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `data-science/sc-ga4-report-ja` | 実働 | Search Console×GA4統合分析。自社=常時蓄積/クライアント=スポット受領の2モード |
 | `data-science/dashboard-design-ja` | レビュー | ダッシュボード設計規律(デジタル庁ガイド準拠)。構成比は横棒・軸0起点・定義注記必須 |
 | `data-science/openseo-ja` | 実働 | OpenSEO(Semrush/AhrefsのOSS代替)をSEOデータ基盤化。日本向け設定・コスト規律・スキル連携マップ |
+| `data-science/ab-test-analysis-ja` | レビュー | A/Bテストの統計判定。サンプルサイズ・SRM検証、ガードレール指標、採用/延長/中止の推奨 |
 | `data-science/data-reconciliation` | レビュー | Looker Studio等と生データの突合QA。CV確定遅延・税込税抜等の頻出ズレ対応 |
 
 ## インストール
