@@ -6,7 +6,7 @@ Claude Code / Claude 向けの Agent Skills 集。海外の高評価スキル(ma
 
 **完了の定義は「提案」ではなく「実行と記録」。** 実働スキルはAPI・スクリプト接続があれば実行まで行い(承認ゲート対象を除く)、結果をPDCA台帳(`management/pdca-runner-ja`)に記録して次サイクルへつなぐ。接続が未整備の場合のみ、入稿可能な完成物+実行手順の納品で代替する。
 
-## 構成(7分野・55スキル)
+## 構成(7分野・56スキル)
 
 ```
 gtm/              Go-To-Market(戦略・ポジショニング・競合・価格)
@@ -62,6 +62,7 @@ data-science/     データサイエンス(リサーチ・データ突合)
 | `creative/ad-creative-ja` | 実働 | 訴求軸マトリクス、Meta/LINE/YouTube/GDN入稿規格、テスト・疲弊管理 |
 | `creative/sales-deck-ja` | 実働 | 稟議で回覧される前提の提案書・営業資料。SLIDE.md方式でデザインと内容を分離 |
 | `creative/image-generation-ja` | 実働 | 画像生成ワークフロー。指示の仕様化(Scene/Subject/Details/UseCase/Constraints)、形容詞→視覚情報変換、クロマキー透過スクリプト同梱 |
+| `creative/video-creation-ja` | 実働 | マーケ・SNS向けショート動画。構成台本・絵コンテ・素材指示・媒体別尺仕様・書き出し工程 |
 | `creative/design-review-ja` | レビュー | 3秒テスト・タイポ・打消し表示の視認性など出稿前レビュー |
 
 ### エンジニア
