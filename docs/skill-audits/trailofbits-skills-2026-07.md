@@ -1,6 +1,15 @@
 # スキル監査記録: trailofbits/skills(2026-07)
 
-## 判定: 導入推奨(プラグイン直接導入・日本語での作り直しはしない)
+## 判定: 導入(vendor/ へ原文のまま同梱・日本語での作り直しはしない)
+
+## 実コードのvetting(同梱前に実施)
+クローンして実スクリプト(py95/sh47)をスキャン:
+- 外部送信(requests.post/urllib/curl -X等): 検出なし
+- 疑わしい実行系(eval/exec/base64): 検出はconstant-time-analyzerが「危険な
+  タイミングパターン」として説明している箇所のみ。実行コードでない
+- 外部URL: firebase誤設定検査・OSV脆弱性DB(api.osv.dev)・npmレジストリ等の
+  正当な用途。`http://evil`等はテストフィクスチャ
+→ 想定どおり防御専用でクリーン。同梱を実施(コミット293fb74)
 
 ## 対象
 - リポジトリ: https://github.com/trailofbits/skills(⭐6.8k、CC-BY-SA 4.0)
