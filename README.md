@@ -133,6 +133,9 @@ cp -r marketing/google-ads-ja-ops ~/.claude/skills/
 2. `engineering/systematic-debugging-ja` — 障害対応の型
 3. `engineering/skill-vetting` — 外部スキル導入時の門番
 
+**深い技術セキュリティ監査(外部プラグイン併用)**
+C/Rust・暗号・スマートコントラクト・サプライチェーン等の専門監査は、Trail of Bits公式スキル(`trailofbits/skills` プラグイン、防御専用)へ委譲。`security-review-ja`(一次レビュー+日本の法令)から橋渡しする。詳細は `docs/skill-audits/trailofbits-skills-2026-07.md`。
+
 **新規事業・新サービスの立ち上げ(GTM一式)**
 `gtm/` の4本 → 決まったメッセージを `creative/`・`marketing/` の実働スキルへ展開
 

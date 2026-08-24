@@ -132,9 +132,31 @@ npm audit --production / pip-audit / bundler-audit / osv-scanner
 (lint/CIへの組み込み提案: 秘密検出のpre-commit、npm auditのCI化等)
 ```
 
+## 深い技術監査への委譲(Trail of Bits skills)
+
+このスキルは「Web/業務アプリの実務セキュリティ+日本の法令(個人情報保護法・PII)」をカバーする広く浅い一次レビュー。以下のような**深い専門監査が必要な差分**は、Trail of Bits公式スキル群(`trailofbits/skills` プラグイン、防御専用・CC-BY-SA、世界トップ監査企業製)に委譲する:
+
+| 差分の性質 | 委譲先スキル(plugin内) |
+|---|---|
+| C/C++・Rustのメモリ安全性・FFI | c-review / rust-review / modern-cpp |
+| 暗号コードのタイミング副チャネル | constant-time-analysis / zeroize-audit |
+| 依存関係のサプライチェーン(npm/PyPI/Go)の踏み込んだ監査 | supply-chain-risk-auditor |
+| 静的解析ルールの自作(Semgrep/CodeQL/SARIF) | semgrep-rule-creator / static-analysis |
+| スマートコントラクト・ブロックチェーン | building-secure-contracts / entry-point-analyzer |
+| GitHub ActionsのAIエージェント脆弱性 | agentic-actions-auditor |
+| 変更差分のセキュリティ特化レビュー | differential-review / variant-analysis |
+
+導入(要 `engineering/skill-vetting` を一度通す。ただしTrail of Bits製・防御専用・CC-BY-SAで低リスク):
+```
+/plugin marketplace add trailofbits/skills
+/plugin menu   # 必要なスキルのみ有効化
+```
+委譲した監査の結果も、本スキルの出力様式(深刻度・未確認・再発防止)に揃えて報告し、`management/pdca-runner-ja` の台帳に載せる。**攻撃検証が要る場合は書面許可のある専門業者へ**(このスキル集は防御のみ)。
+
 ## 原則
 
 - チェックを通したふりをしない。確認できなかった項目は「未確認」と明記する(空欄の✓は監査の偽装)。
 - 修正提案は具体的なコード・設定の差分レベルで書く。
 - Critical検出時は他の作業より優先してユーザーに報告する。
 - 本番環境・第三者のシステムに対する能動的な攻撃的検証(実際のペイロード送信)は、明示的な許可がある場合のみ。
+- 専門性が自分の一次レビューを超える差分は、無理に判定せず上記プラグインや専門家へ委譲する(過信が最大のリスク)。
